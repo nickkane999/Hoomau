@@ -1,0 +1,8 @@
+api-gateway/node_modules
+api-server/node_modules
+api-server-db/node_modules
+client/node_modules
+dev.js
+client/.env.development
+client/.env.production
+improvements.txt
