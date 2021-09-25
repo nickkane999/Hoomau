@@ -3,22 +3,25 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import express from "express";
 import mongoose from "mongoose";
+import axios from "axios";
 
 // First Setup (Confirmed it worked)
-/*
-import resolvers from "#root/graphql/resolvers";
-import typeDefs from "#root/graphql/typeDefs";
-*/
+import resolvers from "#root/graphql3/resolvers";
+import typeDefs from "#root/graphql3/schema";
 
 // Second Setup (Adding more complex queries)
-import resolvers from "#root/graphql2/resolvers";
-import typeDefs from "#root/graphql2/typeDefs";
-
+//import resolvers from "#root/graphql2/resolvers";
+//import typeDefs from "#root/graphql2/schema";
 // calling the port somehow
 
 const app = express();
+//const router = express.Router();
 
 app.use(cookieParser());
+
+console.log("REsults");
+console.log(resolvers);
+console.log(typeDefs);
 
 app.use(
   cors({
@@ -53,4 +56,42 @@ startServer();
 
 app.listen(7000, "0.0.0.0", () => {
   console.info("API gateway listening on 7000");
+});
+
+app.get("/", (req, res) => {
+  /*
+  axios
+    .post(
+      "http://localhost:7000/graphql",
+      {
+        query: `
+        createUser(user: $userData) {
+          id
+          username
+          bio
+          phonenumber
+          profession
+          createdDate
+        }`,
+        variables: {
+          userData: {
+            username: "test",
+          },
+        },
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+    */
+  res.send("I ran");
 });
