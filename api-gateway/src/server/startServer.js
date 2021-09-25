@@ -58,38 +58,6 @@ app.listen(7000, "0.0.0.0", () => {
 
 app.get("/", (req, res) => {
   /*
-  axios
-    .post(
-      "http://localhost:7000/graphql",
-      {
-        query: `
-        createUser(user: $userData) {
-          id
-          username
-          bio
-          phonenumber
-          profession
-          createdDate
-        }`,
-        variables: {
-          userData: {
-            username: "test",
-          },
-        },
-      },
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    )
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-    */
+   */
   res.send("I ran");
 });
