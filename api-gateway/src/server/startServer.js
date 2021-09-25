@@ -4,6 +4,7 @@ import cors from "cors";
 import express from "express";
 import mongoose from "mongoose";
 import axios from "axios";
+import { makeExecutableSchema } from "@graphql-tools/schema";
 
 // First Setup (Confirmed it worked)
 import resolvers from "#root/graphql3/resolvers";
@@ -29,11 +30,13 @@ app.use(
     credentials: true,
   })
 );
-
+const schema = makeExecutableSchema({
+  resolvers,
+  typeDefs,
+});
 async function startServer() {
   const apolloServer = new ApolloServer({
-    resolvers,
-    typeDefs,
+    schema,
   });
 
   await apolloServer.start();
