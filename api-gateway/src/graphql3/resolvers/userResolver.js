@@ -9,15 +9,21 @@ const { isAuthenticated } = require('./middleware');
 const PubSub = require('../subscription');
 const { userEvents } = require('../subscription/events');
 */
-const Post = require("#root/graphql3/models/PostModel");
+//const Post = require("#root/graphql3/models/PostModel");
+const User = require("#root/graphql3/models/UserModel");
 
 const info = {
   Query: {
-    getAllPosts: async (parent, args, context, info) => {
-      const posts = await Post.find();
-      return posts;
+    getAllUsers: async () => {
+      const users = await User.find();
+      return users;
+    },
+    getUser: async (parent, args, context, info) => {
+      const users = await User.find();
+      return users;
     },
   },
 };
-console.log(info);
+//.toDateString()
+//console.log(info);
 module.exports = info;
