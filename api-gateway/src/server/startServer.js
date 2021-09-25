@@ -6,23 +6,18 @@ import mongoose from "mongoose";
 import axios from "axios";
 import { makeExecutableSchema } from "@graphql-tools/schema";
 
-// First Setup (Confirmed it worked)
-import resolvers from "#root/graphql3/resolvers";
-import typeDefs from "#root/graphql3/schema";
-
-// Second Setup (Adding more complex queries)
-//import resolvers from "#root/graphql2/resolvers";
-//import typeDefs from "#root/graphql2/schema";
-// calling the port somehow
+// Simpler setup for graphql queries
+import resolvers from "#root/graphql/resolvers";
+import typeDefs from "#root/graphql/schema";
 
 const app = express();
 //const router = express.Router();
 
 app.use(cookieParser());
 
-console.log("REsults");
-console.log(resolvers);
-console.log(typeDefs);
+//console.log("REsults");
+//console.log(resolvers);
+//console.log(typeDefs);
 
 app.use(
   cors({
