@@ -1,16 +1,13 @@
 const { gql } = require("apollo-server-express");
-const importSchema = require("graphql-import");
 //const makeExecutableSchema = require("graphql-tools");
 
 console.log("Was this read");
 
-const userTypeDefs = require("./user");
-//const userTypeDefs = importSchema("./testUser/schema.graphql");
-//const schema = makeExecutableSchema({ userTypeDefs });
-//const scriptTypeDefs = require("./script");
+const userInfo = require("./user");
+const scriptInfo = require("./script");
 
-console.log("Look at me");
-console.log(userTypeDefs);
+//console.log("Look at me");
+//console.log(userTypeDefs);
 
 const typeDefs = gql`
   scalar Date
@@ -26,7 +23,7 @@ const typeDefs = gql`
   }
 `;
 
-module.exports = [userTypeDefs];
+module.exports = [userInfo, scriptInfo];
 //module.exports = [schema];
 
 // Easy way
