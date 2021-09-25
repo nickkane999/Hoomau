@@ -1,4 +1,4 @@
-const User = require("#root/graphql3/models/UserModel");
+const User = require("#root/graphql/models/UserModel");
 
 module.exports = {
   Query: {

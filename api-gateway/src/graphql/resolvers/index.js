@@ -1,5 +1,4 @@
-import * as Query from "./Query";
+//const { GraphQLDateTime } = require("graphql-iso-date");
+const userResolver = require("./user");
 
-const resolvers = { Query };
-
-export default resolvers;
+module.exports = [userResolver];
