@@ -16,7 +16,7 @@ const Navs = () => {
   console.log(asPath);
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="primary" variant="dark">
       <Container>
         <Navbar.Brand href="#home">Ho'omau</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

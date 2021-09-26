@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import Link from "next/link";
+import { Navbar } from "react-bootstrap";
 
-export const NavList = styled.nav`
+export const NavList = styled(Navbar)`
   background-color: #3d84db;
+  color: #f0ead6 !important;
 `;
 
 export const BrandImage = styled.div`

@@ -5,10 +5,12 @@ import Nav from "../src/components/nav";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <div className="container">
+    <>
       <Nav />
-      <Component {...pageProps} />
-    </div>
+      <div className="container">
+        <Component {...pageProps} />
+      </div>
+    </>
   );
 }
 
