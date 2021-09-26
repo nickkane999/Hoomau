@@ -8,6 +8,7 @@ module.exports = {
         },
       },
     ],
+    ["styled-components", { ssr: true }],
   ],
   presets: [
     [
