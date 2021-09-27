@@ -13,11 +13,11 @@ import client from "#root/pages/api/graphql/client";
 import query from "#root/pages/api/graphql/user";
 import cookie from "js-cookie";
 import { stringifyForDisplay } from "@apollo/client/utilities";
-import { useData } from "../../src/components/session/SessionContext";
+import { useLogin } from "#root/src/components/session/SessionContext";
 
 const Profile = ({ ...props }) => {
   const { user, cookies } = props;
-  const { login, setLogin } = useData();
+  const { login, setLogin } = useLogin();
   console.log(login);
 
   //const { login, setLogin } = useContext(SessionContext);
