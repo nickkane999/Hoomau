@@ -1,3 +1,20 @@
-import { createContext } from "react";
+import { useState, createContext, useContext, useMemo } from "react";
 
-export const SessionContext = createContext(null);
+const SessionContext = createContext(null);
+
+export function useData() {
+  return useContext(SessionContext);
+}
+
+export function SessionProvider({ children }) {
+  const [login, setLogin] = useState("hello from context");
+  const providerValue = useMemo(() => ({ login, setLogin }), [login, setLogin]);
+
+  return (
+    <>
+      <SessionContext.Provider value={providerValue}>
+        {children}
+      </SessionContext.Provider>
+    </>
+  );
+}
