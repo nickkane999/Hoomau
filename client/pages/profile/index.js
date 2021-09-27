@@ -8,8 +8,9 @@ import {
 } from "../../src/components/profile/Profile.styled";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { gql } from "@apollo/client";
+import { useQuery, gql } from "@apollo/client";
 import client from "./testclient";
+import query from "./testquery";
 
 const Profile = ({ user }) => {
   console.log("My props");
@@ -45,19 +46,8 @@ const Profile = ({ user }) => {
 };
 
 export async function getStaticProps() {
-  const { data } = await client.query({
-    query: gql`
-      query getUser($id: ID) {
-        getUser(id: $id) {
-          id
-          username
-          bio
-          phoneNumber
-          profession
-          createdDate
-        }
-      }
-    `,
+  const { data } = await useQuery({
+    query,
     variables: {
       id: "614ecc6925cf94ee83bb184d",
     },
