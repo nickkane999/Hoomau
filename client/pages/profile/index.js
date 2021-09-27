@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { fetchProfile } from "../../src/actions/profile";
+import { fetchProfile } from "#root/src/actions/profile";
 import {
   UserProfile,
   UserInformation,
@@ -9,11 +9,14 @@ import {
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { gql } from "@apollo/client";
-import client from "./testclient";
+import client from "#root/pages/api/graphql/client";
+import query from "#root/pages/api/graphql/user";
+import cookie from "js-cookie";
+import { stringifyForDisplay } from "@apollo/client/utilities";
 
-const Profile = ({ user }) => {
+const Profile = ({ ...props }) => {
+  const { user, cookies } = props;
   console.log("My props");
-  console.log(user);
 
   const makeUserProfile = () => {
     const { username, bio, phoneNumber, profession, createdDate } = user;
@@ -33,31 +36,70 @@ const Profile = ({ user }) => {
     );
   };
 
+  const makeEmptyUserProfile = () => {
+    return (
+      <>
+        <p>
+          {" "}
+          You have not logged in as a user, so you cannot view any information
+        </p>
+      </>
+    );
+  };
+
+  const fetchData = async (url) => {
+    const data = await axios({
+      method: "post",
+      url: url,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: JSON.stringify({ token: "ABCD" }),
+    });
+    console.log(data);
+  };
+
+  const cookieSettingTest = () => {
+    return (
+      <>
+        <button
+          type="button"
+          onClick={() => {
+            fetchData("/api/profile/login");
+            //cookie.set("name", "Billy", { expires: 1 / 24 });
+          }}
+        >
+          Set name
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            fetchData("/api/profile/logout");
+            //cookie.remove("name", "Billy", { expires: 1 / 24 });
+          }}
+        >
+          Remove name
+        </button>
+      </>
+    );
+  };
+
   return (
     <UserProfile>
       <h1>My Profile</h1>
       <UserInformation>
-        {user !== null ? makeUserProfile() : {}``}
+        {user !== null && typeof cookies.token !== "undefined"
+          ? makeUserProfile()
+          : makeEmptyUserProfile()}
       </UserInformation>
-      <p>Add my profile here</p>
+      {cookieSettingTest()}
     </UserProfile>
   );
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps({ req, res }) {
   const { data } = await client.query({
-    query: gql`
-      query getUser($id: ID) {
-        getUser(id: $id) {
-          id
-          username
-          bio
-          phoneNumber
-          profession
-          createdDate
-        }
-      }
-    `,
+    query,
     variables: {
       id: "614ecc6925cf94ee83bb184d",
     },
@@ -66,6 +108,7 @@ export async function getStaticProps() {
   return {
     props: {
       user: data.getUser,
+      cookies: req.cookies,
     },
   };
 }
