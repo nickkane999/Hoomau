@@ -25,7 +25,7 @@ const Navs = () => {
           <Nav className="me-auto" />
           <Nav>
             {LINKS.map((link) => (
-              <Link href={link.to}>
+              <Link key={link.to} href={link.to}>
                 <Nav.Link
                   href={link.to}
                   className={`nav-link ${link.to === asPath ? "active" : ""}`}

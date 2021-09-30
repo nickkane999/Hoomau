@@ -2,8 +2,9 @@
 import "bootstrap/dist/css/bootstrap.css";
 import "../styles/globals.css";
 import Nav from "../src/components/nav";
+import type { AppProps /*, AppContext */ } from "next/app";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }, AppProps) {
   return (
     <>
       <Nav />

@@ -1,0 +1,12 @@
+{
+  "sections": [
+    {
+      "title": "<h1>Our goal</h1>",
+      "html_content": "<p>This site will let you extract data from different websites</p>"
+    },
+    {
+      "title": "<h2>How to use</h2>",
+      "html_content": "<p>You can find different scripts that are available to use from the \"Results\" page </p> <p> The scripts you have created or favorited can be found on the \"Scripts\" page </p> <p> Customize information you would like others to see from your \"Profile\" page </p>"
+    }
+  ]
+}
