@@ -16,7 +16,7 @@ const LINKS_LOGGED_IN = [
 
 const LINKS_LOGGED_OFF = [
   { to: "/", text: "Home" },
-  { to: "/", text: "Login", action: "signIn" },
+  { to: "/#", text: "Login", action: "signIn" },
 ];
 
 const Navs = () => {
