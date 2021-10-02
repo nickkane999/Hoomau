@@ -11,7 +11,7 @@ const LINKS_LOGGED_IN = [
   { to: "/results", text: "Results" },
   { to: "/scripts", text: "Scripts" },
   { to: "/profile", text: "Profile" },
-  { to: "/", text: "Logout", action: "signOut" },
+  { to: "/#", text: "Logout", action: "signOut" },
 ];
 
 const LINKS_LOGGED_OFF = [
