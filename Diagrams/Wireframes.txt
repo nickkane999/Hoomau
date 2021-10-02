@@ -1,9 +1,0 @@
-UX
-
-    Homepage: https://wireframe.cc/sO4bsa
-    Profile: https://wireframe.cc/7bC0R2
-    Scripts: https://wireframe.cc/qaP1Ta
-    Results: https://wireframe.cc/cN49LH
-    ResultDetails (Data): https://wireframe.cc/UBsU5S
-    ResultDetails (Structure): https://wireframe.cc/yn0G8N
-    Template (Blank Page): https://wireframe.cc/bGVubc
