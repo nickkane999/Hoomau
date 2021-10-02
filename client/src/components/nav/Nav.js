@@ -11,12 +11,17 @@ const LINKS_LOGGED_IN = [
   { to: "/results", text: "Results" },
   { to: "/scripts", text: "Scripts" },
   { to: "/profile", text: "Profile" },
-  { to: "/#", text: "Logout", action: "signOut" },
+  { to: "/", text: "Logout", action: "signOut", preventHighlight: true },
 ];
 
 const LINKS_LOGGED_OFF = [
   { to: "/", text: "Home" },
-  { to: "/#", text: "Login", action: "signIn" },
+  {
+    to: "/",
+    text: "Login",
+    action: "signIn",
+    preventHighlight: true,
+  },
 ];
 
 const Navs = () => {
@@ -48,7 +53,9 @@ const Navs = () => {
           <Link href={link.to ? link.to : "#"}>
             <Nav.Link
               href={link.to}
-              className={`nav-link ${link.to === asPath ? "active" : ""}`}
+              className={`nav-link ${
+                link.to === asPath && !link.preventHighlight ? "active" : ""
+              }`}
               onClick={link.action ? determineOnClick(link) : ``}
             >
               {link.text}
