@@ -1,16 +1,20 @@
 //import "materialize-css/dist/css/materialize.min.css";
 import "bootstrap/dist/css/bootstrap.css";
-import "../styles/globals.css";
-import Nav from "../src/components/nav";
-import type { AppProps /*, AppContext */ } from "next/app";
+import "#root/styles/globals.css";
+import Nav from "../src/components/nav/Nav";
+import SessionManagement from "#root/src/components/session/SessionManagement";
+import { SessionProvider } from "#root/src/components/session/SessionContext";
+import { useState, useEffect, useMemo, createContext } from "react";
 
 function MyApp({ Component, pageProps }, AppProps) {
   return (
     <>
-      <Nav />
-      <div className="container">
-        <Component {...pageProps} />
-      </div>
+      <SessionProvider>
+        <Nav />
+        <div className="container">
+          <Component {...pageProps} />
+        </div>
+      </SessionProvider>
     </>
   );
 }

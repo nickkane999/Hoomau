@@ -6,17 +6,22 @@ import {
   UserProfile,
   UserInformation,
 } from "../../src/components/profile/Profile.styled";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { gql } from "@apollo/client";
 import client from "#root/pages/api/graphql/client";
 import query from "#root/pages/api/graphql/user";
 import cookie from "js-cookie";
 import { stringifyForDisplay } from "@apollo/client/utilities";
+import { useLogin } from "#root/src/components/session/SessionContext";
 
 const Profile = ({ ...props }) => {
   const { user, cookies } = props;
-  console.log("My props");
+  const { login, setLogin } = useLogin();
+  console.log(login);
+
+  //const { login, setLogin } = useContext(SessionContext);
+  //console.log(login);
 
   const makeUserProfile = () => {
     const { username, bio, phoneNumber, profession, createdDate } = user;

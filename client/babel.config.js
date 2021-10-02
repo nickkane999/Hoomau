@@ -21,5 +21,6 @@ module.exports = {
     ],
     "@babel/preset-react",
     ["next/babel"],
+    ["@babel/preset-typescript"],
   ],
 };
