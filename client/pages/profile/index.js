@@ -46,7 +46,7 @@ const Profile = ({ user }) => {
 };
 
 export async function getStaticProps() {
-  const { data } = await useQuery({
+  const { data } = await client.query({
     query,
     variables: {
       id: "614ecc6925cf94ee83bb184d",
