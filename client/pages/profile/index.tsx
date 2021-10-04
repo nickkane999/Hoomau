@@ -17,8 +17,8 @@ import { useLogin } from "#root/src/components/session/SessionContext";
 
 const Profile = ({ ...props }) => {
   const { user, cookies } = props;
-  const { login, setLogin } = useLogin();
-  console.log(login);
+  //const { login, setLogin } = useLogin();
+  //console.log(login);
 
   //const { login, setLogin } = useContext(SessionContext);
   //console.log(login);
@@ -93,9 +93,7 @@ const Profile = ({ ...props }) => {
     <UserProfile>
       <h1>My Profile</h1>
       <UserInformation>
-        {user !== null && typeof cookies.token !== "undefined"
-          ? makeUserProfile()
-          : makeEmptyUserProfile()}
+        {user !== null ? makeUserProfile() : makeEmptyUserProfile()}
       </UserInformation>
       {cookieSettingTest()}
     </UserProfile>
