@@ -2,6 +2,7 @@
 import "bootstrap/dist/css/bootstrap.css";
 import "#root/styles/globals.css";
 import Nav from "#root/src/components/nav/Nav";
+import Modals from "#root/src/components/modals/Modals";
 import client from "#root/pages/api/graphql/client";
 import { ApolloProvider } from "@apollo/react-hooks";
 import SessionManagement from "#root/src/components/session/SessionManagement";
@@ -12,6 +13,7 @@ function MyApp({ Component, pageProps }, AppProps) {
     <ApolloProvider client={client}>
       <SessionProvider>
         <Nav />
+        <Modals />
         <div className="container">
           <Component {...pageProps} />
         </div>

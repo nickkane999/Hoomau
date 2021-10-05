@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { NavList, BrandImage } from "./Nav.styled";
 import Link from "next/link";
 import { Navbar, Container, NavDropdown, Nav } from "react-bootstrap";
-import { useLogin } from "#root/src/components/session/SessionContext";
+import { useSessionData } from "#root/src/components/session/SessionContext";
 import { loginUser } from "#root/src/actions/loginUser";
 
 const LINKS_LOGGED_IN = [
@@ -26,11 +26,14 @@ const LINKS_LOGGED_OFF = [
 
 const Navs = () => {
   const { asPath } = useRouter();
-  const { login, setLogin } = useLogin();
+  const { loginData, loginModal } = useSessionData();
+  const { login, setLogin } = loginData;
+  const { openLoginModal, setOpenLoginModal } = loginModal;
   console.log(asPath);
 
   const signInUser = () => {
     setLogin(loginUser());
+    setOpenLoginModal(true);
   };
 
   const signOutUser = () => {
