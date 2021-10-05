@@ -54,6 +54,40 @@ export const ModalContainer = styled.div`
   }
 `;
 
+export const Title = styled.div`
+  display: inline-block;
+  text-align: center;
+  margin-top: 10px;
+`;
+
+export const Body = styled.div`
+  flex: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.7rem;
+  text-align: center;
+`;
+
+export const Footer = styled.div`
+  flex: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    width: 150px;
+    height: 45px;
+    margin: 10px;
+    border: none;
+    background-color: cornflowerblue;
+    color: white;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+`;
+
 export const TitleCloseButton = styled.div`
   display: flex;
   justify-content: flex-end;

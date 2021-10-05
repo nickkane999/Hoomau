@@ -3,6 +3,9 @@ import {
   ModalBackground,
   ModalContainer,
   TitleCloseButton,
+  Title,
+  Body,
+  Footer,
 } from "./Modal.styled";
 
 const Modal = ({ closeModal }) => {
@@ -16,11 +19,13 @@ const Modal = ({ closeModal }) => {
         >
           <button>X</button>
         </TitleCloseButton>
-        <div className="title">
+        <Title>
           <h1> Login Screen </h1>
-        </div>
-        <div className="body">asdas</div>
-        <div className="footer">
+        </Title>
+        <Body>
+          <p>asdas</p>
+        </Body>
+        <Footer>
           <button
             onClick={() => {
               closeModal(false);
@@ -29,7 +34,7 @@ const Modal = ({ closeModal }) => {
             Cancel
           </button>
           <button> Continue </button>
-        </div>
+        </Footer>
       </ModalContainer>
     </ModalBackground>
   );
