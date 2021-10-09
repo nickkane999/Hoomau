@@ -7,6 +7,7 @@ import {
   Body,
   Footer,
 } from "./Modal.styled";
+import LoginForm from "../forms/LoginForm";
 
 const Modal = ({ closeModal }) => {
   return (
@@ -23,7 +24,7 @@ const Modal = ({ closeModal }) => {
           <h1> Login Screen </h1>
         </Title>
         <Body>
-          <p>asdas</p>
+          <LoginForm />
         </Body>
         <Footer>
           <button

@@ -45,7 +45,6 @@ const Profile = ({ ...props }) => {
     return (
       <>
         <p>
-          {" "}
           You have not logged in as a user, so you cannot view any information
         </p>
       </>

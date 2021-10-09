@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Modal from "#root/src/components/shared/Modal";
+import Modal from "#root/src/components/shared/modal/Modal";
 import { useSessionData } from "#root/src/components/session/SessionContext";
 
 const Modals = () => {

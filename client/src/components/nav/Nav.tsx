@@ -53,7 +53,7 @@ const Navs = () => {
     return (
       <>
         {links.map((link) => (
-          <Link href={link.to ? link.to : "#"}>
+          <Link key={link.text} href={link.to ? link.to : "#"} passHref>
             <Nav.Link
               href={link.to}
               className={`nav-link ${
